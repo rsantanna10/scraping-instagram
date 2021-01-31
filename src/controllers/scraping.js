@@ -12,11 +12,15 @@ module.exports = class Measure {
             
             const client = new Instagram({ username: insta_username, password: insta_password });
   
-           await client.login();
+            await client.login();
 
-           const profile = await client.getUserByUsername({ username: req.params.username })
+            //Get profile to get userid
+            const profile = await client.getUserByUsername({ username: req.params.username });
+
+	    const followers = await client.getFollowers({ userId: profile.id });
           
-            res.status(200).send(profile);
+            res.status(200).send(followers);
+
         } catch (error) {
             if (error !== undefined) {
                 res.status(400).send(error)
