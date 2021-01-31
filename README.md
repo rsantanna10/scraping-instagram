@@ -10,5 +10,5 @@ npm i
 insta_username =
 insta_password =
 
-##Method to get scraping 
+## Method to get scraping 
 /scraping/:username
